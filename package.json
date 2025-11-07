@@ -1,0 +1,41 @@
+{
+  "name": "api-endpoint-traffic-light",
+  "version": "1.0.0",
+  "description": "API Endpoint Traffic Light is an automated monitoring solution designed to validate the availability, performance, and stability of APIs through an integrated testing pipeline.",
+  "main": "r each endpoint.",
+  "scripts": {
+    "test": "playwright test",
+    "report": "playwright show-report",
+    "headed": "playwright test --headed",
+    "debug": "playwright test --debug",
+    "format": "prettier . --write",
+    "pretest": "prettier, --check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javierjimenezdp/qa-api-endpoint-traffic-light.git"
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "qa",
+    "testing",
+    "k6"
+  ],
+  "author": "\"Javier Jimenez Palta <ing.javierdavidjp@gmail.com> <https://github.com/javierjimenezdp>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javierjimenezdp/qa-api-endpoint-traffic-light/issues"
+  },
+  "homepage": "https://github.com/javierjimenezdp/qa-api-endpoint-traffic-light#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.0",
+    "dotenv": "^17.2.3",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
