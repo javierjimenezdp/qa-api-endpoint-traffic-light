@@ -5,36 +5,31 @@ on:
     branches: [ "main" ]
   push:
     branches: [ "feat/**", "fix/**", "chore/**" ]
+  workflow_dispatch:
 
 jobs:
   e2e:
+    name: e2e
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Use Node.js
-        uses:actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: 18
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright
-        run: npm run install:pw
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
-      - name: Run tests
+      - name: Run Playwright tests
         run: npm test
 
-      - name: Generate HTML report
-        if: always()
-        run: npm run test:report
-
-      - name: Upload HTML report
-        if: always()
+      - name: Upload Test Report
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
