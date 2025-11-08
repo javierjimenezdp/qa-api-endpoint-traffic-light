@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { faker } from "@faker-js/faker";
 
-test.describe.serial.only("PUT total update", () => {
+test.describe.serial("PATCH partial update", () => {
 const base_url = process.env.BASE_URL || "https://restful-booker.herokuapp.com/";
 const toISODate = (d: Date) => d.toISOString().slice(0, 10);
 let token: string
