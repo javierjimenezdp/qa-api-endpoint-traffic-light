@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.describe.only("POST /createtoken", () => {
+test.describe("POST /createtoken", () => {
   const base_url =
     process.env.BASE_URL || "https://restful-booker.herokuapp.com/";
 
