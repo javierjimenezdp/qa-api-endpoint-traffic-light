@@ -4,13 +4,13 @@
   "description": "API Endpoint Traffic Light is an automated monitoring solution designed to validate the availability, performance, and stability of APIs through an integrated testing pipeline.",
   "main": "r each endpoint.",
   "scripts": {
-    "test": "playwright test",              
+    "test": "playwright test",
     "test:ci": "playwright test --reporter=dot",
     "report": "playwright show-report",
     "headed": "playwright test --headed",
     "debug": "playwright test --debug",
     "format": "prettier . --write",
-    "pretest": "prettier --check ."           
+    "pretest": "prettier --check ."
   },
   "repository": {
     "type": "git",
@@ -38,5 +38,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0"
   }
 }
