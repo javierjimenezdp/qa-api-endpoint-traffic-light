@@ -1,4 +1,4 @@
-name: tests
+name: Playwright Tests
 
 on:
   pull_request:
@@ -8,8 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  e2e:
-    name: e2e
+  test:
     runs-on: ubuntu-latest
     env:
       BASE_URL: https://restful-booker.herokuapp.com
