@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { faker } from "@faker-js/faker";
 
 test.describe("POST /createbooking", () => {
-    const base_url = process.env.BASE_URL || "https://restful-booker.herokuapp.com/";
+    const base_url = process.env.BASE_URL || "https://restful-booker.herokuapp.com";
     const toISODate = (d: Date) => d.toISOString().slice(0, 10);
 
     test("should create a new booking", async ({ request }) => {
@@ -10,7 +10,7 @@ test.describe("POST /createbooking", () => {
         const checkout = new Date(checkin);
         checkout.setDate(checkin.getDate() + faker.datatype.number({ min: 1, max: 14 }));
 
-        const response = await request.post(`${base_url}booking`, {
+        const response = await request.post(`${base_url}/booking`, {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",

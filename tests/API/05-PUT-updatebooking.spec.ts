@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { faker } from "@faker-js/faker";
 
 test.describe.serial("PUT total update", () => {
-const base_url = process.env.BASE_URL || "https://restful-booker.herokuapp.com/";
+const base_url = process.env.BASE_URL || "https://restful-booker.herokuapp.com";
 const toISODate = (d: Date) => d.toISOString().slice(0, 10);
 let token: string
 let bookingId: number
@@ -11,7 +11,7 @@ let updatedBookingData: any
 
 
 test.beforeAll("should create a new token with valid credentials", async ({request,}) => {
-    const response = await request.post(`${base_url}auth`, {
+    const response = await request.post(`${base_url}/auth`, {
         headers: 
             {
                 "Content-Type": "application/json",
@@ -35,7 +35,7 @@ test.beforeAll("should create a new token with valid credentials", async ({reque
         const checkout = new Date(checkin);
         checkout.setDate(checkin.getDate() + faker.datatype.number({ min: 1, max: 14 }));
 
-        const response = await request.post(`${base_url}booking`, {
+        const response = await request.post(`${base_url}/booking`, {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
@@ -65,7 +65,7 @@ test.beforeAll("should create a new token with valid credentials", async ({reque
         const updateCheckout = new Date(updateCheckin);
         updateCheckout.setDate(updateCheckin.getDate() + faker.datatype.number({ min: 1, max: 14 }));
 
-        const response = await request.put(`${base_url}booking/${bookingId}`, {
+        const response = await request.put(`${base_url}/booking/${bookingId}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
